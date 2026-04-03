@@ -28,7 +28,7 @@ public class ClienteFrame extends JFrame {
         setLocationRelativeTo(null);
 
         JPanel painelConexao = new JPanel(new FlowLayout());
-        painelConexao.setBorder(BorderFactory.createTitledBorder("🔗 Conexão"));
+        painelConexao.setBorder(BorderFactory.createTitledBorder("Conexão"));
 
         fieldIP = new JTextField("127.0.0.1", 15);
         fieldPorta = new JTextField("1500", 5);
@@ -41,7 +41,7 @@ public class ClienteFrame extends JFrame {
         painelConexao.add(btnConectar);
 
         JPanel painelArquivos = new JPanel(new BorderLayout());
-        painelArquivos.setBorder(BorderFactory.createTitledBorder("📁 Arquivos no Servidor"));
+        painelArquivos.setBorder(BorderFactory.createTitledBorder("Arquivos no Servidor"));
         painelArquivos.setPreferredSize(new Dimension(350, 400));
 
         modeloLista = new DefaultListModel<>();
@@ -49,10 +49,10 @@ public class ClienteFrame extends JFrame {
         painelArquivos.add(new JScrollPane(listaArquivos), BorderLayout.CENTER);
 
         JPanel painelBotoes = new JPanel(new GridLayout(2, 2, 5, 5));
-        btnUpload = new JButton("📤 Upload");
-        btnDownload = new JButton("📥 Download");
-        btnDeletar = new JButton("🗑 Deletar");
-        btnAtualizar = new JButton("🔄 Atualizar");
+        btnUpload = new JButton("Upload");
+        btnDownload = new JButton("Download");
+        btnDeletar = new JButton("Deletar");
+        btnAtualizar = new JButton("Atualizar");
 
         // Definir tamanhos preferidos para os botões
         Dimension tamanhoBotao = new Dimension(120, 35);
@@ -73,7 +73,7 @@ public class ClienteFrame extends JFrame {
         painelArquivos.add(painelBotoesWrapper, BorderLayout.SOUTH);
 
         JPanel painelProgressoDownload = new JPanel(new GridLayout(2, 1, 5, 5));
-        painelProgressoDownload.setBorder(BorderFactory.createTitledBorder("📥 Progresso do Download"));
+        painelProgressoDownload.setBorder(BorderFactory.createTitledBorder("Progresso do Download"));
         painelProgressoDownload.setPreferredSize(new Dimension(400, 80));
         
         labelDownload = new JLabel("Download: 0%");
@@ -88,7 +88,7 @@ public class ClienteFrame extends JFrame {
 
         // Painel de Progresso para Upload
         JPanel painelProgressoUpload = new JPanel(new GridLayout(2, 1, 5, 5));
-        painelProgressoUpload.setBorder(BorderFactory.createTitledBorder("📤 Progresso do Upload"));
+        painelProgressoUpload.setBorder(BorderFactory.createTitledBorder("Progresso do Upload"));
         painelProgressoUpload.setPreferredSize(new Dimension(400, 80));
         
         labelUpload = new JLabel("Upload: 0%");
@@ -111,7 +111,7 @@ public class ClienteFrame extends JFrame {
         areaLog.setEditable(false);
         areaLog.setFont(new Font("Monospaced", Font.PLAIN, 12));
         JScrollPane scrollLog = new JScrollPane(areaLog);
-        scrollLog.setBorder(BorderFactory.createTitledBorder("📋 Log"));
+        scrollLog.setBorder(BorderFactory.createTitledBorder("Log"));
         scrollLog.setPreferredSize(new Dimension(800, 150));
 
       
@@ -240,7 +240,7 @@ public class ClienteFrame extends JFrame {
 
     private void fazerUpload() {
         if (!conectado || cliente == null) {
-            log("⚠ Não conectado ao servidor");
+            log("Não conectado ao servidor");
             return;
         }
 
@@ -254,7 +254,7 @@ public class ClienteFrame extends JFrame {
 
         new Thread(() -> {
             try {
-                log("⬆ Enviando: " + arquivo.getName());
+                log("Enviando: " + arquivo.getName());
                 limparBarrasProgressoUpload();
                 atualizarProgressoUpload(0, "Iniciando upload...");
 
@@ -317,7 +317,7 @@ public class ClienteFrame extends JFrame {
 
         new Thread(() -> {
             try {
-                log("⬇ Baixando: " + nome);
+                log("Baixando: " + nome);
                 limparBarrasProgressoDownload();
                 atualizarProgressoDownload(0, "Iniciando download...");
 
